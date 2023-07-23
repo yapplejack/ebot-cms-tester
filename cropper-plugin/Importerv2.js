@@ -20,7 +20,14 @@ import '/cropper-plugin/ReactCrop.css';
 //New style will be as follows: each line of HMTL is its own line in markdown, therefore we will basically be covnerting from markdown to HMTL, this will make debugging easier as the program will better reflect the file generated
 
 
-//Current bugs: 
+//Current bugs: lists, images are too big, positioned images are pain, fucked margins when there are rotations
+
+//Where to find bugs:
+//lists: required tools
+//margins: Wheel Assembly, specifically happens with rotated images
+//must add space in the header when deleting images
+//page breaks will break things, test superstructure machining vs gearbox-assembly for chassis
+//need to be able to deal with raw spans
  
 function Importerv2() {
     const [files, setFiles] = useState([]);
@@ -31,12 +38,14 @@ function Importerv2() {
     const [doneSorting, setSorting] = useState(false);
 
     const [outputImages, setOutputImages] = useState([]);
+    const [outputImageText, setOUtputImageText] = useState([]);
     const [outputFiles, setOutputFiles] = useState([]);
     const [exportText, setExportText] = useState([]);
     
     const zip = require('jszip')();
 
     useEffect(() => {
+        console.log(numImages)
         if(importMD != '' && files != '' && numImages == files.length - 2 && doneSorting == true){
             console.log("called");
             modifyFiles();
@@ -45,12 +54,30 @@ function Importerv2() {
 
     const modifyImageTag = (index, imageIndex) => {
         //first start by finding the correct image in the hmtl (splitting could be more better but it works)
-        outputImages[index] = files[parseInt(importedHTML[index][1].split("images/")[1].split('\"')[0].split('image')[1].split('\.jpg')[0])];
-        setOutputImages(outputImages);
-
-        let htmlText = importedHTML[index][1].split('<img')[1].split('\.jpg\" ')[1];
-        let mdText = importMD[imageIndex].split('default\}')[0];
-        return mdText + 'default\} ' + htmlText.split('\}\}')[0] + ', maxWidth: "none"\}\}' + htmlText.split('\}\}')[1];
+        if(importedHTML[index][1].match('.png'))
+        {
+            outputImages[imageIndex] = files[parseInt(importedHTML[index][1].split("images/")[1].split('\"')[0].split('image')[1].split('\.png')[0])];
+            outputImageText[imageIndex] = importedHTML[index][1].split("images/")[1].split('\"')[0].split('image')[1];
+            setOutputImages(outputImages);
+            setOUtputImageText(outputImageText)
+            let htmlText = importedHTML[index][1].split('<img')[1].split('\.png\" ')[1];
+            let mdText = importMD[imageIndex].split('default\}')[0];
+            console.log(index)
+            console.log(importedHTML);
+            return mdText + 'default\} ' + htmlText.split('\}\}')[0] + ', maxWidth: "none"\}\}' + htmlText.split('\}\}')[1];
+        }
+        else
+        {
+            outputImages[imageIndex] = files[parseInt(importedHTML[index][1].split("images/")[1].split('\"')[0].split('image')[1].split('\.jpg')[0])];
+            outputImageText[imageIndex] = importedHTML[index][1].split("images/")[1].split('\"')[0].split('image')[1];
+            setOutputImages(outputImages);
+            setOUtputImageText(outputImageText)
+            let htmlText = importedHTML[index][1].split('<img')[1].split('\.jpg\" ')[1];
+            let mdText = importMD[imageIndex].split('default\}')[0];
+            console.log(index)
+            console.log(importedHTML);
+            return mdText + 'default\} ' + htmlText.split('\}\}')[0] + ', maxWidth: "none"\}\}' + htmlText.split('\}\}')[1];
+        }
     }
 
     const modifySpanTag = (index, imageIndex) => {
@@ -107,6 +134,28 @@ function Importerv2() {
         console.log(finalText);
     }
 
+    const generateFiles = () => {
+        if(outputImages.length > 0)
+        {
+            console.log(outputImages);
+            for(let i = 0; i < outputImages.length; i++)
+            {
+                console.log(outputImageText[i])
+                if(outputImageText[i].match(/.jpg/))
+                {
+                    zip.file("image_" + i + ".jpg", outputImages[i]);
+                }
+                else
+                {  
+                    zip.file("image_" + i + ".png", outputImages[i]);
+                }
+            }
+            zip.generateAsync({type: "blob"}).then(content => {
+                saveAs(content, "example.zip");
+            });
+        }
+    }
+
     const modifyFiles = () => {
         let imageIndex = 0;
         for(let i = 0; i < importedHTML.length; i++)
@@ -126,7 +175,7 @@ function Importerv2() {
         console.log(exportText);
         upscaleFromHMTL();
         createMarkdownFile();
-        //generateFiles();
+        generateFiles();
     }
 
     const setupHTML = function (htmlContent) {
@@ -165,7 +214,7 @@ function Importerv2() {
                         importedHTML[currIndex] = ['space', space];
                         currIndex += 1;
                     }
-                    if(!htmlP[j].match(/hr\sstyle=/i) && htmlP[j].split('span')[1].match(/style/i))
+                    if(!htmlP[j].match(/hr\sstyle=/i) && htmlP[j].split('span')[1].match(/style=\"o/i))
                     {
                         if(textCollection.length > 0)
                         {
@@ -226,7 +275,6 @@ function Importerv2() {
         while(i < mdText.length && !mdText[i].match('<img src='))
         {
             i += 1;
-            console.log(i);
         }
         let mdImages = []
         while(i < mdText.length)
@@ -234,7 +282,8 @@ function Importerv2() {
             mdImages.push(mdText[i]);
             i += 1;
         }
-        
+        setNumImages(mdImages.length);
+        console.log(mdImages);
         setMD(mdImages);
     }
 
@@ -245,6 +294,7 @@ function Importerv2() {
         setupHTML(htmlContent);
         setupMD(mdText);
         setSorting(true);
+        console.log(importedHTML);
         //console.log(importedHTML);
     }
 

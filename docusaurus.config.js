@@ -15,12 +15,12 @@ const config = {
   url: 'https://github.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/ebot.github.io/',
+  baseUrl: '/ebot/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'yapplejack', // Usually your GitHub org/user name.
-  projectName: 'ebot.github.io', // Usually your repo name.
+  projectName: 'ebot', // Usually your repo name.
   deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
@@ -67,13 +67,24 @@ const config = {
           { // this is the options object passed to the plugin
               routes: [
                   { // using Route schema from react-router
-                      path: '/crop',
+                      path: '/ebot/crop',
                       exact: false, // this is needed for sub-routes to match!
                       component: '/cropper-plugin/Importerv2.js',
                   }
               ]
-          }
-      ],
+          },
+    ],
+    /*
+    [
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'about',
+            path: 'docs/about',
+            routeBasePath: 'about',
+            sidebarPath: require.resolve('./sidebarsAbout.js'),
+            // ... other options
+          },
+      ],*/
   ],
 
   themeConfig:
@@ -95,6 +106,7 @@ const config = {
             position: 'left',
             label: 'Docs',
           },
+          {type: 'docSidebar', sidebarId: 'aboutSidebar', label: 'About This Site', position: 'left'},
           {to: '/blog', label: 'Updates', position: 'left'},
           {
             href: 'https://www.118everybot.org/',

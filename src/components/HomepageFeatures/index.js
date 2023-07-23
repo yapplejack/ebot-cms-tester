@@ -4,22 +4,22 @@ import styles from './styles.module.css';
 
 const FeatureList = [
   {
-    title: 'Easy to Use',
+    title: 'Imbedable Youtube Videos',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Youtube vidoes can easily be added in either the sidebar or at the top of each subsection. <br /> <br />
+        This allows the manual and videos to fully integrate with each other and allows for pre-recorded skill videos when appropriate to the section.
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
+    title: 'Goodbye Monster Google Doc',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        150 page Google Docs do not perform well, with ~400 image load times can be terrible especially on low spec computers. <br /><br />
+        Additionally printing can be a haste and general naviagtion is a pain. 
       </>
     ),
   },
@@ -51,14 +51,19 @@ function Feature({Svg, title, description}) {
 
 export default function HomepageFeatures() {
   return (
-    <section className={styles.features}>
-      <div className="container">
-        <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
-          ))}
-        </div>
+    <div className="text--center">
+    <h1>Embed Vidoes</h1>
+    <p>Videos cna easily be integrated at the top of page or in the sidebar, allowing for the best integration between videos and manual.</p>
+    <details className={styles.details}>
+      <summary>
+        Build Video for Section
+      </summary>
+      <div>
+      <iframe width="420" height="315"
+        src="https://www.youtube.com/embed/tgbNymZ7vqY">
+      </iframe>
       </div>
-    </section>
+    </details>
+    </div>
   );
 }

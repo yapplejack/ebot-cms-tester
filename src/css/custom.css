@@ -54,3 +54,12 @@
     line-height: 24.15px;
   }
 }*/
+
+@media print {
+  details, nav, title {
+    display: none;
+  }
+  article {
+    color: black;
+  }
+}
