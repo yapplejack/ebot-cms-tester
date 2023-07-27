@@ -45,7 +45,9 @@ sidebar_position: 3
 
 * 3/16 rivets
 
-<span style={{overflow: 'hidden', display: 'inline-block', margin: '0.00px 0.00px', border: '0.00px solid #000000', transform: 'rotate(0.00rad) translateZ(0px)',  float: 'right', width: '103.81px', height: '170.73px'}}><img src={require("/static/media/superstructure/assembly/image_0.png").default} style={{ width: '103.81px', height: '170.73px', marginLeft: '0px', marginTop: '0px', transform: 'rotate(0.00rad) translateZ(0px)', maxWidth: "none"}}></img> </span>
+<span style={{overflow: 'hidden', display: 'inline-block', margin: '0.00px 0.00px', border: '0.00px solid #000000', transform: 'rotate(0.00rad) translateZ(0px)',  float: 'right', width: '103.81px', height: '170.73px'}}>
+    <img src={require("/static/media/superstructure/assembly/image_0.png").default} style={{ width: '103.81px', height: '170.73px', marginLeft: '0px', marginTop: '0px', transform: 'rotate(0.00rad) translateZ(0px)', maxWidth: "none"}}></img> 
+</span>
 
 <span style={{overflow: 'hidden', display: 'inline-block', margin: '0.00px 0.00px', border: '0.00px solid #000000', transform: 'rotate(0.00rad) translateZ(0px)',  float: 'right', width: '161.56px', height: '159.33px'}}><img src={require("/static/media/superstructure/assembly/image_1.png").default} style={{ width: '161.56px', height: '159.33px', marginLeft: '0px', marginTop: '0px', transform: 'rotate(0.00rad) translateZ(0px)', maxWidth: "none"}}></img> </span>
 
@@ -55,12 +57,10 @@ To make assembly easier for you than it was for us, take one of the Side Plates 
 
 <span style={{overflow: 'hidden', display: 'inline-block', margin: '48.63px 38.79px', border: '0.00px solid #000000', transform: 'rotate(0.91rad) translateZ(0px)',  float: 'right', width: '309.24px', height: '286.14px'}}><img src={require("/static/media/superstructure/assembly/image_2.png").default} style={{ width: '309.24px', height: '286.14px', marginLeft: '0px', marginTop: '0px', transform: 'rotate(0.00rad) translateZ(0px)', maxWidth: "none"}}></img> </span>
 
-To make assembly easier for you than it was for us, take one of the Side Plates from the REV 90 Degree Gearbox and two of the Thrifty Bearing Megaplates. Take four 10-32 1-1/2" bolts and two 10-32 locknuts. Line a Bearing Megaplate up with the lower bearing hole of one of your 02_Superstructure_Main_Beams and put two of the bolts through the larger holes in the Bearing Megaplate, through the box tube, and into the REV 90 degree gearbox in the orientation shown in the picture on the right. Then do the same for the other 02_Superstructure_Main_Beam except the bolts will have locknuts on the ends instead of the Side Plate from the REV 90 Degree Gearbox. We want to attach these plates so we do not accidentally rivet gussets over the desired locations.
-
 
 Some of the pictures below will not show these components attached, but we found this method made assembly easier and prevented gussets from being attached in places that would foul up later assemblies.
 
-<p><br /><br /></p>
+<p><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /></p>
 
 Place &nbsp;02_Superstructure_Upright and 02_Superstructure_Main_Beam&nbsp;together so that the angled edge of 02_Superstructure_Main_Beam&nbsp;lines up against the top of 02_Superstructure_Upright. The angled edge of 02_Superstructure_Main_Beam&nbsp;should be up against and be covered by the one inch wide face of 02_Superstructure_Upright, while both ends of 02_Superstructure_Upright&nbsp;should be uncovered.&nbsp;The two holes at the bottom of 02_Superstructure_Upright&nbsp;should be further away from 02_Superstructure_Main_Beam&nbsp;and closer to the back of the structure. These two assemblies will become the sides of the main superstructure of the Everybot.
 

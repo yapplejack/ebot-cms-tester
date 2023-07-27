@@ -69,7 +69,7 @@ const config = {
                   { // using Route schema from react-router
                       path: '/ebot/crop',
                       exact: false, // this is needed for sub-routes to match!
-                      component: '/cropper-plugin/Importerv2.js',
+                      component: '/cropper-plugin/Importerv3.js',
                   }
               ]
           },

@@ -27,7 +27,7 @@ This manual will cross-reference the as much as possible when calling for parts.
 
 * **Which stock to cut from (Sticks):** also referred to as "sticks," these are individual pieces of Stock with particular cuts in them. Use these to plan out your cuts on your raw Stock. Stick numbers restart with every new Stock - Stick 1 of the 1” by 1” 1/16th Wall Tubing is a different piece from Stick 1 of the 2" x 1" 1/16" Wall Tubing. The different lengths of each stock also have different stick numbers. We will use the part names to refer to pieces rather than stick numbers.
 
-You should clearly label machined parts in a way that makes sense to your team. We recommend writing at least the Part names from the cut list, as that will make it obvious what part to grab when this manual refers to, for example, 02_Superstructure_Upright. Here are some examples of how you may want to label your parts from last year’s Everybot.
+You should clearly label machined parts in a way that makes sense to your team. We recommend writing at least the Part names from the cut list, as that will make it obvious what part to grab when this manual refers to, for example, 02_Superstructure_Upright. Here are some examples of how you may want to label your parts from last year’s Everybot. -
 
 ![image alt text](/media/the-cut-list/image_4.jpg)
 ![image alt text](/media/the-cut-list/image_5.jpg)
