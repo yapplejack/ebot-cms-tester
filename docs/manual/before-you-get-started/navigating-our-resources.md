@@ -1,6 +1,6 @@
 ---
 sidebar_label: 'Navigating Our Resources'
-sidebar_position: 1
+sidebar_position: 7
 ---
 
 # Navigating Our Resources

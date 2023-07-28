@@ -36,6 +36,7 @@ function Importerv2() {
     const [numLines, setNumLines] = useState('');
     const [numImages,  setNumImages] = useState(0);
     const [doneSorting, setSorting] = useState(false);
+    const [headerStyles, setHeaderStyles] = useState({});
 
     const [outputImages, setOutputImages] = useState([]);
     const [outputImageText, setOUtputImageText] = useState([]);
@@ -45,7 +46,6 @@ function Importerv2() {
     const zip = require('jszip')();
 
     useEffect(() => {
-        console.log(numImages)
         if(importMD != '' && files != '' && numImages == files.length - 2 && doneSorting == true){
             console.log("called");
             modifyFiles();
@@ -115,12 +115,12 @@ function Importerv2() {
                 margLeft[0] = margLeft[1].split('px')[0];
                 //console.log(exportText[i]);
                 //console.log(widths[0] + " converted: " + Math.round(parseFloat(widths[0]) * 1.8 * 100)/100);
-                exportText[i] = exportText[i].split('width: \'')[0] + 'width: \'' + Math.round(parseFloat(widths[0]) * 1.375  * 100)/100 + 'px\', height: \'' 
-                + Math.round(parseFloat(heights[0]) * 1.375 * 100)/100 + 'px\'\}\}' + exportText[i].split('\}\}')[1].split('width: \'')[0] + 'width: \'' 
-                + Math.round(parseFloat(widths[1]) * 1.375  * 100)/100 + 'px\', height: \''
-                + Math.round(parseFloat(heights[1]) * 1.375  * 100)/100 + 'px\', marginLeft: \''
-                + Math.round(parseFloat(margLeft[1]) * 1.375  * 100)/100 + 'px\', marginTop: \''
-                + Math.round(parseFloat(margTop[1]) * 1.375  * 100)/100 + 'px\', transform' + exportText[i].split('\}\}')[1].split('transform')[1] + '\}\}' + exportText[i].split('\}\}')[2];
+                exportText[i] = exportText[i].split('width: \'')[0] + 'width: \'' + Math.round(parseFloat(widths[0]) * 1  * 100)/100 + 'px\', height: \'' 
+                + Math.round(parseFloat(heights[0]) * 1 * 100)/100 + 'px\'\}\}' + exportText[i].split('\}\}')[1].split('width: \'')[0] + 'width: \'' 
+                + Math.round(parseFloat(widths[1]) * 1  * 100)/100 + 'px\', height: \''
+                + Math.round(parseFloat(heights[1]) * 1  * 100)/100 + 'px\', marginLeft: \''
+                + Math.round(parseFloat(margLeft[1]) * 1  * 100)/100 + 'px\', marginTop: \''
+                + Math.round(parseFloat(margTop[1]) * 1  * 100)/100 + 'px\', transform' + exportText[i].split('\}\}')[1].split('transform')[1] + '\}\}' + exportText[i].split('\}\}')[2];
             }
         }
     }
@@ -178,6 +178,7 @@ function Importerv2() {
         generateFiles();
     }
 
+    //handle ol, ul, h1, h2, raw span
     const setupHTML = function (htmlContent) {
         htmlContent = htmlContent.split('</head>')[1].split('</p>');
         let numSpaces = 0;
@@ -186,7 +187,6 @@ function Importerv2() {
         for(let i = 0; i < htmlContent.length - 1; i++)
         {
             let htmlP = htmlContent[i].split('</span>');
-            console.log(htmlP);
             let textCollection = [];
             let textIndex = 0;
             let pBreak = false;
@@ -283,7 +283,6 @@ function Importerv2() {
             i += 1;
         }
         setNumImages(mdImages.length);
-        console.log(mdImages);
         setMD(mdImages);
     }
 
@@ -294,7 +293,6 @@ function Importerv2() {
         setupHTML(htmlContent);
         setupMD(mdText);
         setSorting(true);
-        console.log(importedHTML);
         //console.log(importedHTML);
     }
 
@@ -327,3 +325,96 @@ return (
 }
  
 export default Importerv2;
+
+
+
+/*
+const setupHTML = function (htmlContent) {
+        htmlContent = htmlContent.split('</head>')[1].split('</p>');
+        let numSpaces = 0;
+        let currIndex = 0;
+        let imageNum = 0;
+        for(let i = 0; i < htmlContent.length - 1; i++)
+        {
+            let htmlP = htmlContent[i].split('</span>');
+            let textCollection = [];
+            let textIndex = 0;
+            let pBreak = false;
+            for(let j = 0; j < htmlP.length; j++)
+            {
+                if(htmlP[j] != '')
+                {
+                    if(htmlP[j].match(/hr\sstyle=/i))
+                    {
+                        pBreak = true;
+                    }
+                    else if(htmlP[j].split('<span')[1].match(/\d\">$/) && !htmlP[j].split('span')[1].match(/style/i))
+                    {
+                        numSpaces += 1;
+                    }
+                    else if(numSpaces > 0)
+                    {
+                        let space = "<p>";
+                        for(let j =0; j < numSpaces; j++)
+                        {
+                            space += '<br /> '
+                        }
+                        space += '</p>'
+                        numSpaces = 0;
+                        importedHTML[currIndex] = ['space', space];
+                        currIndex += 1;
+                    }
+                    if(!htmlP[j].match(/hr\sstyle=/i) && htmlP[j].split('span')[1].match(/style=\"o/i))
+                    {
+                        if(textCollection.length > 0)
+                        {
+                            for(let j = 1; j < textCollection.length; j++)
+                            {
+                                textCollection[0] += textCollection[j];
+                            }
+                            importedHTML[currIndex] = ['text', textCollection[0]];
+                            currIndex += 1;
+                            textCollection.length = 0;
+                        }
+                        const reg = /-\webkit\-transform: 'rotate\(\d{1}\.\d{2}rad\) translateZ\(\d{1}px\)',/;
+                        let res = htmlP[j].split('span style')[1].replaceAll(";", "',").replaceAll(": ", ": '").replaceAll('margin-left', 'marginLeft').replaceAll('margin-top', 'marginTop').replace(reg, "")
+                        
+                        .replaceAll('border: 0.00px solid #000000,', '').replace('="', "").replaceAll(", -webkit-transform: 'rotate(0.00rad) translateZ(0px)',", "").replace('px,"', "px").replace('>', '}}>').replace('">', "'}}>").replace("style=", "style={{ ")
+                        .replace("px',\"", "px'").replace("\" title=\"'", "").replace("\"width", 'width');
+                        res = "<span style={{" + res + "</img> </span>";
+                        importedHTML[currIndex] = ["img", res];
+                        currIndex += 1;
+                        imageNum += 1;
+                    }
+                    else if(!htmlP[j].match(/hr\sstyle=/i) && htmlP[j].split('span')[1].match(/<\/a>/))
+                    {
+                        textCollection[textIndex] = '<a' + htmlP[j].split('<a')[1].split('<\/a>')[0] + '<\/a>';
+                        textIndex += 1;
+                    }
+                    else if(!htmlP[j].match(/hr\sstyle=/i) && numSpaces == 0)
+                    {
+                        textCollection[textIndex] = htmlP[j].split('span')[1].split('>')[1];
+                        textIndex += 1;
+                    }
+                    setHMTL(importedHTML);
+                    setNumLines(currIndex);
+                    setNumImages(imageNum);
+                }
+            }
+            if(textCollection.length > 0)
+            {
+                for(let j = 1; j < textCollection.length; j++)
+                {
+                    textCollection[0] += textCollection[j];
+                }
+                importedHTML[currIndex] = ['text', textCollection[0]];
+                currIndex += 1;
+            }
+            if(pBreak == true)
+            {
+                importedHTML[currIndex] = ["break", 'pageBreak'];
+                currIndex += 1;
+            }
+        }
+    }
+*/
