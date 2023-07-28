@@ -8,7 +8,30 @@ Style:
 
 Do not hyperlink images. (this is fixable by changing the import processing of a elements)
 
+//Notes on LocalCrop.css in relation to google doc importing
+//96 px = 1 inch in google docs, doc is 8.5" long so google doc length is 816 px and images from default margin to margin is 720px
+//images will be imported larger
+//currently the docs pages are 990pxs meaning images can be upscaled by 1.375
+// 958 is current size of unmodified doc column, so from 531 to 958 is a resize of 1.8 however the html size is not refecltive of the size in google docs
+// we are using 1.35 as the conversion factor rn but we should do the math and not be lazy
 
+//structure: doStuff, readInput, writeOutput, low level implement
+
+
+//Revalations: currently our md export is not putting images in the correct locations or order. HMTL appears to always have the image in the ideal location. Text must be read in from HMTL to ensure correct image locations.
+//MD must be rewritten to always have images in correct order as we still need to know the float location from the images.
+
+//New style will be as follows: each line of HMTL is its own line in markdown, therefore we will basically be covnerting from markdown to HMTL, this will make debugging easier as the program will better reflect the file generated
+
+
+//Current bugs: lists, images are too big, positioned images are pain, fucked margins when there are rotations
+
+//Where to find bugs:
+//lists: required tools
+//margins: Wheel Assembly, specifically happens with rotated images
+//must add space in the header when deleting images
+//page breaks will break things, test superstructure machining vs gearbox-assembly for chassis
+//need to be able to deal with raw spans
 
 
 

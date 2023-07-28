@@ -73,7 +73,7 @@ article {
 }*/
 
 @media print {
-  details, nav, title {
+  details, nav, title, hide {
     display: none;
   }
   article {

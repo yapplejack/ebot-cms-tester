@@ -4,34 +4,12 @@ import ReactCrop from 'react-image-crop';
 import { saveAs } from 'file-saver';
 import '/cropper-plugin/ReactCrop.css';
 
-//Notes on LocalCrop.css in relation to google doc importing
-//96 px = 1 inch in google docs, doc is 8.5" long so google doc length is 816 px and images from default margin to margin is 720px
-//images will be imported larger
-//currently the docs pages are 990pxs meaning images can be upscaled by 1.375
-// 958 is current size of unmodified doc column, so from 531 to 958 is a resize of 1.8 however the html size is not refecltive of the size in google docs
-// we are using 1.35 as the conversion factor rn but we should do the math and not be lazy
-
-//structure: doStuff, readInput, writeOutput, low level implement
-
-
-//Revalations: currently our md export is not putting images in the correct locations or order. HMTL appears to always have the image in the ideal location. Text must be read in from HMTL to ensure correct image locations.
-//MD must be rewritten to always have images in correct order as we still need to know the float location from the images.
-
-//New style will be as follows: each line of HMTL is its own line in markdown, therefore we will basically be covnerting from markdown to HMTL, this will make debugging easier as the program will better reflect the file generated
-
-
-//Current bugs: lists, images are too big, positioned images are pain, fucked margins when there are rotations
-
-//Where to find bugs:
-//lists: required tools
-//margins: Wheel Assembly, specifically happens with rotated images
-//must add space in the header when deleting images
-//page breaks will break things, test superstructure machining vs gearbox-assembly for chassis
-//need to be able to deal with raw spans
+//ImporterV3 is written terribly, the 2nd iteration was cleaner but lacked features, in adding the new features I should have started from scratch but was lazy, this needs to eventually be cleaned up 
+//GL following the regex :?
 
 function Importerv3() {
     const [files, setFiles] = useState([]);
-    const [importedHTML, setHMTL] = useState([]);
+    const [importedHTML, setHTML] = useState([]);
     const [importMD, setMD] = useState([]);
     const [numLines, setNumLines] = useState('');
     const [numImages, setNumImages] = useState(0);
@@ -53,46 +31,78 @@ function Importerv3() {
         }
     }, [importMD, files, numImages, doneSorting])
 
+    //if performance was a concern then all for loops for the image handling should be combined (would be better written too)
     const modifyImageTag = (index, imageIndex) => {
-        if (importedHTML[index][1].match('.png')) {
-            outputImages[imageIndex] = files[parseInt(importedHTML[index][1].split("images/")[1].split('\"')[0].split('image')[1].split('\.png')[0])];
-            outputImageText[imageIndex] = importedHTML[index][1].split("images/")[1].split('\"')[0].split('image')[1];
-            setOutputImages(outputImages);
-            setOUtputImageText(outputImageText)
-            let htmlText = importedHTML[index][1].split('<img')[1].split('\.png\" ')[1];
-            let mdText = importMD[imageIndex].split('default\}')[0];
-            console.log(index)
-            console.log(importedHTML);
-            return mdText + 'default\} ' + htmlText.split('\}\}')[0] + ', maxWidth: "none"\}\}' + htmlText.split('\}\}')[1];
-        }
-        else {
-            outputImages[imageIndex] = files[parseInt(importedHTML[index][1].split("images/")[1].split('\"')[0].split('image')[1].split('\.jpg')[0])];
-            outputImageText[imageIndex] = importedHTML[index][1].split("images/")[1].split('\"')[0].split('image')[1];
-            setOutputImages(outputImages);
-            setOUtputImageText(outputImageText)
-            let htmlText = importedHTML[index][1].split('<img')[1].split('\.jpg\" ')[1];
-            let mdText = importMD[imageIndex].split('default\}')[0];
-            console.log(index)
-            console.log(importedHTML);
-            return mdText + 'default\} ' + htmlText.split('\}\}')[0] + ', maxWidth: "none"\}\}' + htmlText.split('\}\}')[1];
-        }
-    }
-
-    const modifySpanTag = (index, imageIndex) => {
-        console.log(importedHTML[index][1])
-        let floatPosition = importedHTML[index][1].split('width')[0] + 'width' + importedHTML[index][1].split('width')[1].split('\}\}')[0];
-        if (importMD[imageIndex].match(/left=\"-?(\d+)/i)) {
-            console.log(parseFloat(importMD[imageIndex].match(/left=\"-?(\d+)/i)[1]));
-            if (parseFloat(importMD[imageIndex].match(/left=\"-?(\d+)/i)[1]) > 375) {
-                floatPosition = importedHTML[index][1].split('width')[0] + 'float: \'right\', ' + 'width' + importedHTML[index][1].split('width')[1].split('\}\}')[0];
+        let newHTML = "";
+        let splitHTML = importedHTML[index].split(/<div style={{overflow/);
+        //console.log(splitHTML);
+        for (let i = 0; i < splitHTML.length; i++) {
+            if (splitHTML[i].match('.png"')) {
+                outputImages[imageIndex] = files[parseInt(splitHTML[i].split("images/")[1].split('\"')[0].split('image')[1].split('\.png')[0])];
+                outputImageText[imageIndex] = splitHTML[i].split("images/")[1].split('\"')[0].split('image')[1];
+                setOutputImages(outputImages);
+                setOUtputImageText(outputImageText)
+                let htmlText = splitHTML[i].split('<img')[1].split('\.png\" ')[1];
+                let mdText = importMD[imageIndex].split('default\}')[0];
+                //console.log(index)
+                //console.log('<div style={{overflow' + splitHTML[i].split('<img')[0] + mdText + 'default\} ' + htmlText.split('\}\}')[0] + ', maxWidth: "none"\}\}' + htmlText.split('\}\}')[1]);
+                newHTML += '<div style={{overflow' + splitHTML[i].split('<img')[0] + mdText + 'default\} ' + htmlText.split('\}\}')[0] + ', maxWidth: "none"\}\}' + htmlText.split('\}\}')[1];
+                imageIndex += 1;
+                //return mdText + 'default\} ' + htmlText.split('\}\}')[0] + ', maxWidth: "none"\}\}' + htmlText.split('\}\}')[1];
+            }
+            else if (splitHTML[i].match('.jpg"')) {
+                outputImages[imageIndex] = files[parseInt(splitHTML[i].split("images/")[1].split('\"')[0].split('image')[1].split('\.jpg')[0])];
+                outputImageText[imageIndex] = splitHTML[i].split("images/")[1].split('\"')[0].split('image')[1];
+                setOutputImages(outputImages);
+                setOUtputImageText(outputImageText)
+                let htmlText = splitHTML[i].split('<img')[1].split('\.jpg\" ')[1];
+                let mdText = importMD[imageIndex].split('default\}')[0];
+                newHTML += '<div style={{overflow' + splitHTML[i].split('<img')[0] + mdText + 'default\} ' + htmlText.split('\}\}')[0] + ', maxWidth: "none"\}\}' + htmlText.split('\}\}')[1];
+                imageIndex += 1;
             }
             else {
-                floatPosition = importedHTML[index][1].split('width')[0] + 'float: \'left\', ' + 'width' + importedHTML[index][1].split('width')[1].split('\}\}')[0];
+                newHTML += splitHTML[i];
             }
         }
-        return floatPosition + "\}\}>"
+        return newHTML;
     }
 
+    //If more than one image is floated then the last floated one will be the closest to the page edge, this needs to be fixed
+    //Somewhere the image width should be check to ensure that when margins are added to images they do not overflow.
+    const modifySpanTag = (newHTML, imageIndex) => {
+        let splitHTML = newHTML.split(/<div style={{overflow/);
+        newHTML = '';
+        for (let i = 0; i < splitHTML.length; i++) {
+            if (splitHTML[i].match(/^: 'hidden'/)) {
+                if (importMD[imageIndex].match(/left=\"-?(\d+)/i)) {
+                    //console.log(parseFloat(importMD[imageIndex].match(/left=\"-?(\d+)/i)[1]));
+                    if (parseFloat(importMD[imageIndex].match(/left=\"-?(\d+)/i)[1]) > 375) {
+                        //floatPosition = importedHTML[index][1].split('width')[0] + 'float: \'right\', ' + 'width' + importedHTML[index][1].split('width')[1].split('\}\}')[0];
+                        newHTML += '<div style={{overflow: \'hidden\', ' + 'float: \'right\', ' + splitHTML[i].split(': \'hidden\', ')[1].split(/overflow/)[0] +
+                            'float: \'right\', overflow: \'hidden\', ' + splitHTML[i].split(/overflow: 'hidden', /)[1];
+                    }
+                    else {
+                        newHTML += '\n\n<div style={{overflow: \'hidden\', ' + 'float: \'left\', ' + splitHTML[i].split(': \'hidden\', ')[1].split(/overflow/)[0] +
+                            'float: \'left\', overflow: \'hidden\', ' + splitHTML[i].split(/overflow: 'hidden', /)[1] + '\n\n';
+                    }
+                }
+                else
+                {
+                    newHTML += '<div style={{overflow' + splitHTML[i]
+                }
+                imageIndex += 1;
+            }
+            else if (splitHTML[i].match(/: 'hidden'/)) {
+                throw new Error('I thought that overflow hidden would only exist with images or perhaps the image was not wrapped with a span. Please let Jack know you encounter this error.');
+            }
+            else {
+                newHTML += splitHTML[i];
+            }
+        }
+        return [newHTML, imageIndex]
+    }
+
+    //this function does not currently work with V3
     const upscaleFromHMTL = () => {
         for (let i = 0; i < exportText.length; i++) {
             if (importedHTML[i][0] == 'img') {
@@ -139,28 +149,29 @@ function Importerv3() {
                 }
             }
             zip.generateAsync({ type: "blob" }).then(content => {
-                saveAs(content, "example.zip");
+                saveAs(content, "images.zip");
             });
         }
     }
 
     const modifyFiles = () => {
         let imageIndex = 0;
+        //importedHTML.length
         for (let i = 0; i < importedHTML.length; i++) {
-            if (importedHTML[i][0] == 'img') {
-                exportText[i] = modifyImageTag(i, imageIndex);
-                exportText[i] = modifySpanTag(i, imageIndex) + exportText[i];
-                imageIndex += 1;
+            if (importedHTML[i].match(/<div style={{overflow:/)) {
+                let newHTML = modifyImageTag(i, imageIndex);
+                [exportText[i], imageIndex] = modifySpanTag(newHTML, imageIndex);
             }
             else {
-                exportText[i] = importedHTML[i][1];
+                exportText[i] = importedHTML[i];
             }
             setExportText(exportText);
         }
         console.log(exportText);
-        upscaleFromHMTL();
+        console.log(outputImageText);
+        //upscaleFromHMTL();
         createMarkdownFile();
-        generateFiles();
+        //generateFiles();
     }
 
     //styles we need to care about: text-align:center, color, font-weight, maybe font size
@@ -345,7 +356,7 @@ function Importerv3() {
 
                 let frontTag = "<div style={{overflow: 'hidden', display: 'inline-block', margin: '0.00px 0.00px'}}>"
 
-                res = frontTag + "\n<span style={{" + res + "</img> </span>\n</div>";
+                res = frontTag + "<span style={{" + res + "</img></span></div>";
                 importedHTML[currIndex] = res;
                 imageNum += 1;
                 currIndex += 1;
@@ -413,7 +424,7 @@ function Importerv3() {
 
                         let frontTag = "<div style={{overflow: 'hidden', display: 'inline-block', margin: '0.00px 0.00px'}}>"
 
-                        res = frontTag + "\n<span style={{" + res + "</img> </span>\n</div>";
+                        res = frontTag + "<span style={{" + res + "</img></span></div>";
                         topLevel[i] = topLevel[i].replace(/<(?<=<).*?>/, '');
                         topLevel[i] = topLevel[i].replace(/<(?<=<).*?>/, '');
                         topLevel[i] = topLevel[i].replace(/^<\/.*?>/, '');
@@ -500,8 +511,7 @@ function Importerv3() {
             if (endRun == false) {
                 throw new Error('Unable to parse HTML at top level item: ' + i);
             }
-            //kill current body in topLevel
-            setHMTL(importedHTML);
+            setHTML(importedHTML);
 
         }
 
@@ -524,17 +534,40 @@ function Importerv3() {
     }
 
     const resolveSpace = function () {
+        console.log('in');
         let numSpaces = 0;
         let newHTML = [];
         let newIndex = 0;
         for (let i = 0; i < importedHTML.length; i++) {
-            if (importedHTML[i]) {
-                numSpaces += 1
+            if (importedHTML[i] == '') {
+                numSpaces += 1;
             }
-            else if (true) {
-                
+            else if (importedHTML[i].match(/(?!.*img)(?!.*pageBreakAfter)(?!.*>[^<]+?<)^<.*?></)) {
+                numSpaces += 1;
+                //if things are being erased it is probably the regex above
+            }
+            else {
+                if (numSpaces > 0) {
+                    let space = "<p>";
+                    for (let j = 0; j < numSpaces; j++) {
+                        space += '<br /> '
+                    }
+                    space += '</p>'
+                    numSpaces = 0;
+                    newHTML[newIndex] = space;
+                    newIndex += 1;
+                }
+                newHTML[newIndex] = importedHTML[i];
+                newIndex += 1;
             }
         }
+        //why this
+        for (let i = 0; i < newHTML.length; i++) {
+            importedHTML[i] = newHTML[i];
+        }
+        importedHTML.length = newHTML.length;
+        setHTML(importedHTML);
+        console.log(importedHTML);
     }
 
     const setupProgram = async (file) => {
@@ -544,7 +577,9 @@ function Importerv3() {
         setupStyles(htmlContent.split('/head>')[0]);
         setupHTML(htmlContent);
         setupMD(mdText);
-        //setSorting(true);
+        resolveSpace();
+        setSorting(true);
+        console.log('here');
         //console.log(importedHTML);
     }
 
@@ -646,7 +681,7 @@ const setupHTML = function (htmlContent) {
                         textCollection[textIndex] = htmlP[j].split('span')[1].split('>')[1];
                         textIndex += 1;
                     }
-                    setHMTL(importedHTML);
+                    setHTML(importedHTML);
                     setNumLines(currIndex);
                     setNumImages(imageNum);
                 }
