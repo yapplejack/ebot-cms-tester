@@ -2,11 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://github.com/ebot/blog</id>
     <title>Everybud Blog</title>
-    <updated>2023-02-01T00:00:00.000Z</updated>
+    <updated>2023-08-01T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://github.com/ebot/blog"/>
     <subtitle>Everybud Blog</subtitle>
     <icon>https://github.com/ebot/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Mobile is online]]></title>
+        <id>https://github.com/ebot/blog/08-1-release</id>
+        <link href="https://github.com/ebot/blog/08-1-release"/>
+        <updated>2023-08-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Mobile should now be fully functional.]]></summary>
+        <content type="html"><![CDATA[<p>Mobile should now be fully functional.</p>]]></content>
+        <author>
+            <name>Jack Ferguson</name>
+            <uri>https://www.118everybot.org/</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Supply Issues with the 90 MaxPlanetary]]></title>
         <id>https://github.com/ebot/blog/supply</id>

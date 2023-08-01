@@ -4,10 +4,18 @@
         <title>Everybud Blog</title>
         <link>https://github.com/ebot/blog</link>
         <description>Everybud Blog</description>
-        <lastBuildDate>Wed, 01 Feb 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 01 Aug 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Mobile is online]]></title>
+            <link>https://github.com/ebot/blog/08-1-release</link>
+            <guid>https://github.com/ebot/blog/08-1-release</guid>
+            <pubDate>Tue, 01 Aug 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[Mobile should now be fully functional.]]></description>
+            <content:encoded><![CDATA[<p>Mobile should now be fully functional.</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Supply Issues with the 90 MaxPlanetary]]></title>
             <link>https://github.com/ebot/blog/supply</link>
