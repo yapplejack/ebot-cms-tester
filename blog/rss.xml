@@ -9,12 +9,12 @@
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <item>
-            <title><![CDATA[Mobile is online]]></title>
+            <title><![CDATA[Major bug fixes]]></title>
             <link>https://github.com/ebot/blog/08-1-release</link>
             <guid>https://github.com/ebot/blog/08-1-release</guid>
             <pubDate>Tue, 01 Aug 2023 00:00:00 GMT</pubDate>
-            <description><![CDATA[Mobile should now be fully functional.]]></description>
-            <content:encoded><![CDATA[<p>Mobile should now be fully functional.</p>]]></content:encoded>
+            <description><![CDATA[Mobile should now be fully functional and dark mode should be working.]]></description>
+            <content:encoded><![CDATA[<p>Mobile should now be fully functional and dark mode should be working.</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Supply Issues with the 90 MaxPlanetary]]></title>
