@@ -29,6 +29,9 @@ function Importerv3() {
             console.log("called");
             modifyFiles();
         }
+        if (numImages != 0 && numImages != files.length - 2) {
+            throw new Error("The number of images supplied does not match the number of images found in the google doc. Please make sure all positioned images are 'move with text' and not 'fix position to page'.")
+        }
     }, [importMD, files, numImages, doneSorting])
 
     //if performance was a concern then all for loops for the image handling should be combined (would be better written too)
@@ -86,8 +89,7 @@ function Importerv3() {
                             'float: \'left\', overflow: \'hidden\', ' + splitHTML[i].split(/overflow: 'hidden', /)[1] + '\n\n';
                     }
                 }
-                else
-                {
+                else {
                     newHTML += '<div style={{overflow' + splitHTML[i]
                 }
                 imageIndex += 1;
@@ -171,7 +173,7 @@ function Importerv3() {
         console.log(outputImageText);
         //upscaleFromHMTL();
         createMarkdownFile();
-        //generateFiles();
+        generateFiles();
     }
 
     //styles we need to care about: text-align:center, color, font-weight, maybe font size
@@ -350,7 +352,7 @@ function Importerv3() {
                 const reg = /-\webkit\-transform: 'rotate\(\d{1}\.\d{2}rad\) translateZ\(\d{1}px\)',/;
                 let res = topLevel[i].match(/<\/span>/)[0].split('span style')[1].replaceAll(";", "',").replaceAll(": ", ": '").replaceAll('margin-left', 'marginLeft').replaceAll('margin-top', 'marginTop').replace(reg, "")
 
-                    .replaceAll('border: 0.00px solid #000000,', '').replace('="', "").replaceAll(", -webkit-transform: 'rotate(0.00rad) translateZ(0px)',", "").replace('px,"', "px").replace('>', '}}>').replace('">', "'}}>").replace("style=", "style={{ ")
+                    .replaceAll('border: 0.00px solid #000000,', '').replace('="', "").replaceAll(/, -webkit-transform: 'rotate\(-?\d+\.\d+rad\) translateZ\(\d\.?\d*?px\)'[,;]/g, "").replace('px,"', "px").replace('>', '}}>').replace('">', "'}}>").replace("style=", "style={{ ")
                     .replace("px',\"", "px'").replace("\" title=\"'", "").replace("\"width", 'width');
 
 
@@ -418,7 +420,8 @@ function Importerv3() {
                         const reg = /-\webkit\-transform: 'rotate\(\d{1}\.\d{2}rad\) translateZ\(\d{1}px\)',/;
                         let res = topLevel[i].match('.*?(?=<\/)')[0].split('span style')[1].replaceAll(";", "',").replaceAll(": ", ": '").replaceAll('margin-left', 'marginLeft').replaceAll('margin-top', 'marginTop').replace(reg, "")
 
-                            .replaceAll('border: 0.00px solid #000000,', '').replace('="', "").replaceAll(", -webkit-transform: 'rotate(0.00rad) translateZ(0px)',", "").replace('px,"', "px").replace('>', '}}>').replace('">', "'}}>").replace("style=", "style={{ ")
+                            .replaceAll('border: 0.00px solid #000000,', '').replace('="', "").replaceAll(/, -webkit-transform: 'rotate\(-?\d+\.\d+rad\) translateZ\(\d\.?\d*?px\)'[,;]/g, "")
+                            .replace('px,"', "px").replace('>', '}}>').replace('">', "'}}>").replace("style=", "style={{ ")
                             .replace("px',\"", "px'").replace("\" title=\"'", "").replace("\"width", 'width');
 
 
@@ -579,6 +582,7 @@ function Importerv3() {
         setupMD(mdText);
         resolveSpace();
         setSorting(true);
+        console.log(numImages);
         console.log('here');
         //console.log(importedHTML);
     }

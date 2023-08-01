@@ -111,7 +111,7 @@ Two of the bearings used in the Toughbox have flanges while the other two do not
 
 Press two R6ZZ 3/8&rdquo; round inner diameter bearings (am-0516) without flanges into the two center holes of the Toughbox Mini housing. Insert the Toughbox small 3/8&rdquo; hex shaft (am-0152) into the bearing closer to the flat end of the gearbox housing.
 
-<div>
+<div style={{textAlign: 'center'}}>
 <span style={{overflow: 'hidden', display: 'inline-block', margin: '6.00px 6.00px'}}>
 <span style={{overflow: 'hidden', display: 'inline-block', margin: '0.00px 0.00px', border: '0.00px solid #000000', transform: 'rotate(0.00rad) translateZ(0px)',  width: '253.59px', height: '217.9px'}}>
 <img src={require("/static/media/chassis/gearbox-assembly/image_14.jpg").default} style={{ width: '676.24px', height: '308.03px', marginLeft: '-148.4px', marginTop: '-14.63px', transform: 'rotate(0.00rad) translateZ(0px)', maxWidth: "none"}}></img> </span>

@@ -9,27 +9,35 @@ header-includes:
 
 ## What is this?
 
-This is a website is uses a markdown-folder-structure based react app called Docusaurus. More importantly this is attempt at improving the documenation for the Everybot and creating a home for additional FRC resources.
+This is a website is uses a markdown-folder-structure based react app called Docusaurus. More importantly this is attempt at improving the documentation for the Everybot and creating a home for additional FRC resources.
 
 <hr/>
 
 ### What is here right now?
 
-Currently I have converted some of the manual into markdown in the docs section. The stylization is not finalized (font, spacing, page width) and the pages themselves have some issues (center, color and some other elements are not implemented).
+Currently I have converted some of the manual into markdown in the docs section. All of the sections print nearly identically to a Google Doc and a majority of desired styling from the doc is also present. 
+
+<p> <br /> </p>
+
+Additionally there is some scaffolding for a fundamentals of FRC section, meant to exist as a wiki for low resource robotics. 
+
+<p> <br /> </p>
 
 There is also a updates section that could be used to let people know when there are stock issues, changes or additions to manual.
+
+<p> <br /> </p>
 
 Lastly there is an algorithm that is able to process takes the output of my script and HTML from a Google Doc and converts it into a markdown file.
 
 <hr/>
 
-## Why this approach?
+### Why make a website?
 
-After my time working on both the documentation and build videos I was disappointed by disunity between them. I want the resources to benefit symbiotically from each other. The manual needs videos because skills like measuring and machining can be difficult to explain in text and any holes left by limitations of the instructions can be filled by videos. It then follows that videos are at their best if they are integrated into the manual, as they need the organization it provides.
+After my time working on both the documentation and build videos I was disappointed by disunity between them. I want the resources to benefit symbiotically from each other. The manual needs videos because skills like measuring and machining can be difficult to explain in text and any holes left by limitations of the instructions can be filled by videos. It then follows that videos are at their best if they are integrated into the manual, as they need the organization it provides. <p> <br /> </p>
 
-I have looked into alternatives to Google Docs, specifically GitBook, which both REV and WCP use but I found it lacking. You have to pay to allow your docs to be printed (and they do not look good when converted to PDF)
+I have looked into alternatives to Google Docs, specifically GitBook, which both REV and WCP use but I found it lacking. You have to pay to allow your docs to be printed (and they do not look good when converted to PDF), their Google Doc conversion is worse than mine and they lack a lot of customization. <p> <br /> </p>
 
-At the top of each section or in the left sidebar you are able to embed videos for better manual to video cohesion.
+The main goal that I set out with was for each section to allow for embedded videos for better manual to video cohesion.
 
 <details >
     <summary>
@@ -42,7 +50,9 @@ At the top of each section or in the left sidebar you are able to embed videos f
     </div>
 </details>
 
-Prerecorded videos called "skill videos" (temp name) could also be used to bolster a section and cut down on required in-season filming.
+Notable these videos do not sacrifice printing as they hide themselves when using ctrl + p.<p> <br /> </p>
+
+In addition to section specific videos it would be nice to have prerecorded videos called "skill videos" (temp name) that could be used to bolster a section and cut down on required in-season filming. These videos are what I would like to make for the fundamentals of FRC.
 
 <details >
     <summary>
@@ -53,9 +63,12 @@ Prerecorded videos called "skill videos" (temp name) could also be used to bolst
             <li>Reading Engineering Drawings</li>
             <li>Using specific machines</li>
             <li>Dimensioning/marking and so on</li>
+            <li>Basically anything from the fundamentals</li>
         </ul>
     </div>
 </details>
+
+The concept of what a page of the manual would look like with a section video can be seen [here](../manual/chassis/gearbox-assembly.md), please try to print it if you desire.
 
 <hr/>
 
@@ -71,7 +84,9 @@ With the pages being broken up as they are, users should have to load a max of 5
 
 ### The Big Question: Should We Use It?
 
-Maybe, I am not sure yet. It has the potential to look significantly better than a Google Doc but it can also easily look worse if care is not taken. It is based on the same type of file as GitBooks (markdown files) but it allows for the usage of Javascript and is built with react which allows for infinite customization.
+Maybe, I am not sure yet. It has the potential to look significantly better than a Google Doc but it can also easily look worse if care is not taken. It is based on the same type of file as GitBooks (markdown files) but it allows for the usage of Javascript and is built with react which allows for infinite customization. <p> <br /> </p>
+
+Right now the biggest hurdles are installation, collaboration and infrastructure. There are some major disadvantages but I plan on going more in depth on these issues later on as they are constantly evolving. 
 
 Videos and documentation should benefit from each-other and I believe this might be the best way to achieve that. That being said, a Google Doc like format might not be the best for an instruction manaul. 
 
@@ -122,4 +137,4 @@ You can also just write raw markdown but writing markdown from scratch is a comp
 
 ### How is it hosted?
 
-Currently this running on Github Pages via the gh-pages branch in my repository for it, with the project being saved to the main branch. The website can easily be hosted for free through a variety of providers however Github pages should be good enough. GitHub pages sites may not exceed 1GB, this site is currently ~55MBs. The other issue would be the 100GB rate limit but I high doubt this would be broken. 
+Currently this running on Github Pages via the gh-pages branch in my repository for it, with the project being saved to the main branch. The website can easily be hosted for free through a variety of providers however Github pages should be good enough. GitHub pages sites may not exceed 1GB, this site is currently ~55MBs. The other issue would be the 100GB rate limit but I highly doubt this would be broken. 

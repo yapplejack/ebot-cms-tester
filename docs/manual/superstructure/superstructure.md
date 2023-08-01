@@ -3,7 +3,7 @@ sidebar_label: 'Printable Section'
 sidebar_position: 5
 ---
 
-# Superstructure
+# Superstructure Overview
 
 <p><br /> </p>
 
@@ -21,25 +21,25 @@ The Superstructure is made up of six main machined pieces of tube stock with a n
 
 If at any point you are unsure of what a direction or diagram is telling you to do, please ask for clarification in the Everybot <span style={{ textDecoration: "underline"}}><a class="c21" href="https://www.google.com/url?q=https://discord.gg/XuWfwRJcfA&amp;sa=D&amp;source=editors&amp;ust=1690489001419305&amp;usg=AOvVaw0TGqFOAdanrGYHY1SYcv7Y">Discord</a></span>! This is the fastest way to get an answer from the Everybot team, and questions we see there will help us to revise this manual to make steps more clear for other Everybot builders.
 
+<p><br /> <br /> <br /> </p>
+
 <div style={{pageBreakAfter: 'always'}}></div>
 
-<h1>Superstructure Machining</h1>
+<h1 style={{textAlign: 'center'}}>Superstructure Machining</h1>
 
 Start by cutting all tube stock and hex shaft listed as part of the Superstructure in the cut list. Their names all begin with &ldquo;02_Superstructure.&rdquo; The first piece to be machined further are the&nbsp;<span style={{ backgroundColor: "#c9daf8"}}>02_Superstructure_Upright</span>s.
 
 <p><br /> </p>
 
-Many of the holes pictured do not have a dimension. These holes are for attaching gussets whose hole spacing may be different between manufacturers. It is easier to drill many of these holes with the exact gussets you are using clamped in place.
-
 <div style={{overflow: 'hidden', float: 'left', display: 'inline-block', margin: '2.00px 2.00px'}}><span style={{float: 'left', overflow: 'hidden', display: 'inline-block', margin: '0.00px 0.00px', border: '0.00px solid #000000', transform: 'rotate(0.00rad) translateZ(0px)',  width: '270.20px', height: '363.10px'}}><img src={require("/static/media/superstructure/superstructure/image_0.png").default} style={{ width: '270.20px', height: '363.10px', marginLeft: '0.00px', marginTop: '0.00px', transform: 'rotate(0.00rad) translateZ(0px)', maxWidth: "none"}}></img></span></div>
 
-
+Many of the holes pictured do not have a dimension. These holes are for attaching gussets whose hole spacing may be different between manufacturers. It is easier to drill many of these holes with the exact gussets you are using clamped in place.
 
 <p><br /> <br /> </p>
 
 The holes in the upright can be made in one of two ways. They could simply be dimensioned out using calipers to mark the offset from the side rail and bottom, then center punched and drilled out. Alternatively, they can be placed in the chassis, clamped down, and drilled out. The <span style={{ backgroundColor: "#c9daf8"}}>02_Superstructure_Upright</span>s are not meant to be flush to the chassis back plate, there is a 1/8&rdquo; gap between them. To fix that, put a piece of chassis cutoff between the back of the chassis and the <span style={{ backgroundColor: "#c9daf8"}}>02_Superstructure_Upright</span>. Then clamp the <span style={{ backgroundColor: "#c9daf8"}}>02_Superstructure_Upright</span>&nbsp;in place, use a speed square to make sure the upright is perpendicular to the frame, and drill out the 1/4&rdquo; hole. Pictures of this method are shown below. These holes are drilled all the way through <span style={{ backgroundColor: "#c9daf8"}}>02_Superstructure_Upright</span>.
 
-<p><br /> <br /> <br /> <br /> <br /> <br /> </p>
+<p><br />  </p>
 
 <div style={{overflow: 'hidden', float: 'left', display: 'inline-block', margin: '2.00px 2.00px'}}><span style={{float: 'left', overflow: 'hidden', display: 'inline-block', margin: '0.00px 0.00px', border: '0.00px solid #000000', transform: 'rotate(0.00rad) translateZ(0px)',  width: '161.00px', height: '197.60px'}}><img src={require("/static/media/superstructure/superstructure/image_1.jpg").default} style={{ width: '161.00px', height: '214.00px', marginLeft: '0.00px', marginTop: '0.00px', transform: 'rotate(0.00rad) translateZ(0px)', maxWidth: "none"}}></img></span></div>
 
@@ -55,7 +55,7 @@ You could choose to drill out the mirrored 1/2&rdquo; access holes now but we ch
 
 <div style={{pageBreakAfter: 'always'}}></div>
 
-<div style={{overflow: 'hidden', float: 'left', display: 'inline-block', margin: '2.00px 2.00px'}}><span style={{float: 'left', overflow: 'hidden', display: 'inline-block', margin: '0.00px 0.00px', border: '0.00px solid #000000', transform: 'rotate(0.00rad) translateZ(0px)',  width: '381.39px', height: '474.10px'}}><img src={require("/static/media/superstructure/superstructure/image_3.png").default} style={{ width: '381.39px', height: '474.10px', marginLeft: '0.00px', marginTop: '0.00px', transform: 'rotate(0.00rad) translateZ(0px)', maxWidth: "none"}}></img></span></div>
+<div style={{overflow: 'hidden', float: 'left', display: 'inline-block', margin: '12.00px 2.00px'}}><span style={{float: 'left', overflow: 'hidden', display: 'inline-block', margin: '0.00px 0.00px', border: '0.00px solid #000000', transform: 'rotate(0.00rad) translateZ(0px)',  width: '381.39px', height: '474.10px'}}><img src={require("/static/media/superstructure/superstructure/image_3.png").default} style={{ width: '381.39px', height: '474.10px', marginLeft: '0.00px', marginTop: '0.00px', transform: 'rotate(0.00rad) translateZ(0px)', maxWidth: "none"}}></img></span></div>
 
 At first glance this part looks very challenging but becomes significantly easier to manage when using some of the other Everybot components. Once again a good chunk of these holes can be ignored as they may be different depending on the gussets used.
 
@@ -69,7 +69,7 @@ After clamping the tube stock together, start by scribing the location of the lo
 
 <p><br /> </p>
 
-Locate one of the Thrifty Bearing Megaplates. Looking at the image below, locate the edge marked in red of the Bearing Megaplate 4.425&rdquo; up from the bottom of the <span style={{ backgroundColor: "#c9daf8"}}>02_Superstructure_Mainbeam</span>s and&nbsp;clamp the Bearing Megaplate in the orientation shown, making sure to double check the plate is at the correct distance. Then drill out the four holes in the 2&rdquo; circle around the bearing hole all the way through the box tube with a #7 drill bit. Two of these holes are already this size on the Bearing Megaplate, the other two holes are smaller than the #7 drill bit and will be drilled out in both the Bearing Megaplate and the tube stock. Using a drill press is highly recommended to make these holes as straight as possible.<div style={{overflow: 'hidden', float: 'right', display: 'inline-block', margin: '2.00px 2.00px'}}><span style={{float: 'right', overflow: 'hidden', display: 'inline-block', margin: '0.00px 0.00px', border: '0.00px solid #000000', transform: 'rotate(0.00rad) translateZ(0px)',  width: '343.64px', height: '169.90px'}}><img src={require("/static/media/superstructure/superstructure/image_4.png").default} style={{ width: '343.64px', height: '169.90px', marginLeft: '0.00px', marginTop: '0.00px', transform: 'rotate(0.00rad) translateZ(0px)', maxWidth: "none"}}></img></span></div>
+Locate one of the Thrifty Bearing Megaplates. Looking at the image below, locate the edge marked in red of the Bearing Megaplate 4.425&rdquo; up from the bottom of the <span style={{ backgroundColor: "#c9daf8"}}>02_Superstructure_Mainbeam</span>s and&nbsp;clamp the Bearing Megaplate in the orientation shown, making sure to double check the plate is at the correct distance. Then drill <div style={{overflow: 'hidden', float: 'right', display: 'inline-block', margin: '2.00px 2.00px'}}><span style={{float: 'right', overflow: 'hidden', display: 'inline-block', margin: '0.00px 0.00px', border: '0.00px solid #000000', transform: 'rotate(0.00rad) translateZ(0px)',  width: '343.64px', height: '169.90px'}}><img src={require("/static/media/superstructure/superstructure/image_4.png").default} style={{ width: '343.64px', height: '169.90px', marginLeft: '0.00px', marginTop: '0.00px', transform: 'rotate(0.00rad) translateZ(0px)', maxWidth: "none"}}></img></span></div> out the four holes in the 2&rdquo; circle around the bearing hole all the way through the box tube with a #7 drill bit. Two of these holes are already this size on the Bearing Megaplate, the other two holes are smaller than the #7 drill bit and will be drilled out in both the Bearing Megaplate and the tube stock. Using a drill press is highly recommended to make these holes as straight as possible.
 
 <p><br /> </p>
 
@@ -164,6 +164,8 @@ Add an additional 150 Degree Gusset to the inside corner of the join between <sp
 
 Flip the assembly over and rivet another 150 Degree Gusset and 120 Degree Gusset to the other side in the same orientations. Repeat this assembly with the other <span style={{ backgroundColor: "#c9daf8"}}>02_Superstructure_Upright</span>&nbsp;and <span style={{ backgroundColor: "#c9daf8"}}>02_Superstructure_Main_Beam</span>.
 
+<p><br /> <br /></p>
+
 <div style={{pageBreakAfter: 'always'}}></div>
 
 To connect the two sides of the arm superstructure, clamp two 90 Degree Gussets at the top of <span style={{ backgroundColor: "#c9daf8"}}>02_Superstructure_Main_Beam</span>&nbsp;so that they face inwards and line up with the top face of <span style={{ backgroundColor: "#c9daf8"}}>02_Superstructure_Main_Beam</span>. Clamp the long side of two T Gussets onto <span style={{ backgroundColor: "#c9daf8"}}>02_Superstructure_Main_Beam</span>&nbsp;so the protruding tab faces inwards. The center of the protrusion should be located 4.5 inches from where <span style={{ backgroundColor: "#c9daf8"}}>02_Superstructure_Main_Beam</span>&nbsp;meets <span style={{ backgroundColor: "#c9daf8"}}>02_Superstructure_Upright</span>.&nbsp;Make sure it does not encroach on where the 90 Degree Gearbox will be based on where the Side Plate is currently mounted.
@@ -179,6 +181,8 @@ The <span style={{ backgroundColor: "#d9ead3"}}>02_Superstructure_Top_Crossbeam<
 <p><br /> </p>
 
 Now that the arm superstructure has an inside and an outside, drill out the four inner holes at the bottom of each <span style={{ backgroundColor: "#c9daf8"}}>02_Superstructure_Upright</span>&nbsp;to 1/2&rdquo; for clearance to insert bolts. The REV 90 Degree Gearbox Side Plate and the Thrifty Bearing Megaplate can be removed and used to assemble the gearbox shortly. The opposite Bearing Megaplate can be left on if desired.
+
+<p><br /> </p>
 
 <div style={{pageBreakAfter: 'always'}}></div>
 
@@ -198,6 +202,8 @@ The two holes in each <span style={{ backgroundColor: "#c9daf8"}}>02_Superstruct
 
 <div style={{overflow: 'hidden', display: 'inline-block', margin: '2.00px 2.00px'}}><span style={{overflow: 'hidden', display: 'inline-block', margin: '0.00px 0.00px', border: '0.00px solid #000000', transform: 'rotate(0.00rad) translateZ(0px)',  width: '720.00px', height: '92.00px'}}><img src={require("/static/media/superstructure/superstructure/image_20.png").default} style={{ width: '720.00px', height: '114.50px', marginLeft: '0.00px', marginTop: '-22.50px', transform: 'rotate(0.00rad) translateZ(0px)', maxWidth: "none"}}></img></span></div>
 
+<p><br /> </p>
+
 <div style={{pageBreakAfter: 'always'}}></div>
 
 <p><br /> </p>
@@ -213,6 +219,8 @@ Similarly, hold one of the <span style={{ backgroundColor: "#d9ead3"}}>02_Supers
 <div style={{overflow: 'hidden', display: 'inline-block', margin: '2.00px 2.00px'}}><span style={{overflow: 'hidden', display: 'inline-block', margin: '0.00px 0.00px', border: '0.00px solid #000000', transform: 'rotate(0.00rad) translateZ(0px)',  width: '720.00px', height: '90.40px'}}><img src={require("/static/media/superstructure/superstructure/image_23.png").default} style={{ width: '720.00px', height: '115.00px', marginLeft: '0.00px', marginTop: '-24.60px', transform: 'rotate(0.00rad) translateZ(0px)', maxWidth: "none"}}></img></span></div>
 
 <div style={{ textAlign: 'center'}}><div style={{overflow: 'hidden', display: 'inline-block', margin: '2.00px 2.00px'}}><span style={{overflow: 'hidden', display: 'inline-block', margin: '0.00px 0.00px', border: '0.00px solid #000000', transform: 'rotate(0.00rad) translateZ(0px)',  width: '352.00px', height: '236.90px'}}><img src={require("/static/media/superstructure/superstructure/image_24.jpg").default} style={{ width: '546.75px', height: '249.53px', marginLeft: '-128.34px', marginTop: '-12.63px', transform: 'rotate(0.00rad) translateZ(0px)', maxWidth: "none"}}></img></span></div></div>
+
+<p><br /> </p>
 
 <div style={{pageBreakAfter: 'always'}}></div>
 
@@ -250,7 +258,7 @@ Measure up from the bottom end of <span style={{ backgroundColor: "#d9ead3"}}>02
 
 <div style={{ textAlign: 'center'}}><div style={{overflow: 'hidden', float: 'right', display: 'inline-block', margin: '2.00px 2.00px'}}><span style={{float: 'right', overflow: 'hidden', display: 'inline-block', margin: '0.00px 0.00px', border: '0.00px solid #000000', transform: 'rotate(0.00rad) translateZ(0px)',  width: '360.50px', height: '173.97px'}}><img src={require("/static/media/superstructure/superstructure/image_28.jpg").default} style={{ width: '419.32px', height: '190.59px', marginLeft: '-35.53px', marginTop: '-16.62px', transform: 'rotate(0.00rad) translateZ(0px)', maxWidth: "none"}}></img></span></div></div>
 
-<p><br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> </p>
+<p><br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /><br /> <br /> <br /> <br /> <br /> </p>
 
 <div style={{pageBreakAfter: 'always'}}></div>
 
