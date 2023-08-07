@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
         <title>Everybud Blog</title>
-        <link>https://github.com/ebot/blog</link>
+        <link>https://github.com/ebot-cms-tester/blog</link>
         <description>Everybud Blog</description>
         <lastBuildDate>Tue, 01 Aug 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
@@ -10,16 +10,16 @@
         <language>en</language>
         <item>
             <title><![CDATA[Major bug fixes]]></title>
-            <link>https://github.com/ebot/blog/08-1-release</link>
-            <guid>https://github.com/ebot/blog/08-1-release</guid>
+            <link>https://github.com/ebot-cms-tester/blog/08-1-release</link>
+            <guid>https://github.com/ebot-cms-tester/blog/08-1-release</guid>
             <pubDate>Tue, 01 Aug 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[Mobile should now be fully functional and dark mode should be working.]]></description>
             <content:encoded><![CDATA[<p>Mobile should now be fully functional and dark mode should be working.</p>]]></content:encoded>
         </item>
         <item>
             <title><![CDATA[Supply Issues with the 90 MaxPlanetary]]></title>
-            <link>https://github.com/ebot/blog/supply</link>
-            <guid>https://github.com/ebot/blog/supply</guid>
+            <link>https://github.com/ebot-cms-tester/blog/supply</link>
+            <guid>https://github.com/ebot-cms-tester/blog/supply</guid>
             <pubDate>Wed, 01 Feb 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[Hello all, we were informed that there are supply issues with the 90 degree gearbox, here are some fixes:]]></description>
             <content:encoded><![CDATA[<p>Hello all, we were informed that there are supply issues with the 90 degree gearbox, here are some fixes:</p>]]></content:encoded>
@@ -27,8 +27,8 @@
         </item>
         <item>
             <title><![CDATA[The Arm Superstructure Build Section is out and minor additions]]></title>
-            <link>https://github.com/ebot/blog/one-26-release</link>
-            <guid>https://github.com/ebot/blog/one-26-release</guid>
+            <link>https://github.com/ebot-cms-tester/blog/one-26-release</link>
+            <guid>https://github.com/ebot-cms-tester/blog/one-26-release</guid>
             <pubDate>Thu, 26 Jan 2023 00:00:00 GMT</pubDate>
             <description><![CDATA[Sup, we released our arm superstructure build section along with the videos.]]></description>
             <content:encoded><![CDATA[<p>Sup, we released our arm superstructure build section along with the videos.</p><p>Additionally we forgot to add the chassis cutoff step to the superstructure section, you can find it at the end of section.</p>]]></content:encoded>

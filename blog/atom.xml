@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://github.com/ebot/blog</id>
+    <id>https://github.com/ebot-cms-tester/blog</id>
     <title>Everybud Blog</title>
     <updated>2023-08-01T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://github.com/ebot/blog"/>
+    <link rel="alternate" href="https://github.com/ebot-cms-tester/blog"/>
     <subtitle>Everybud Blog</subtitle>
-    <icon>https://github.com/ebot/img/favicon.ico</icon>
+    <icon>https://github.com/ebot-cms-tester/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Major bug fixes]]></title>
-        <id>https://github.com/ebot/blog/08-1-release</id>
-        <link href="https://github.com/ebot/blog/08-1-release"/>
+        <id>https://github.com/ebot-cms-tester/blog/08-1-release</id>
+        <link href="https://github.com/ebot-cms-tester/blog/08-1-release"/>
         <updated>2023-08-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Mobile should now be fully functional and dark mode should be working.]]></summary>
         <content type="html"><![CDATA[<p>Mobile should now be fully functional and dark mode should be working.</p>]]></content>
@@ -21,8 +21,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[Supply Issues with the 90 MaxPlanetary]]></title>
-        <id>https://github.com/ebot/blog/supply</id>
-        <link href="https://github.com/ebot/blog/supply"/>
+        <id>https://github.com/ebot-cms-tester/blog/supply</id>
+        <link href="https://github.com/ebot-cms-tester/blog/supply"/>
         <updated>2023-02-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Hello all, we were informed that there are supply issues with the 90 degree gearbox, here are some fixes:]]></summary>
         <content type="html"><![CDATA[<p>Hello all, we were informed that there are supply issues with the 90 degree gearbox, here are some fixes:</p>]]></content>
@@ -34,8 +34,8 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[The Arm Superstructure Build Section is out and minor additions]]></title>
-        <id>https://github.com/ebot/blog/one-26-release</id>
-        <link href="https://github.com/ebot/blog/one-26-release"/>
+        <id>https://github.com/ebot-cms-tester/blog/one-26-release</id>
+        <link href="https://github.com/ebot-cms-tester/blog/one-26-release"/>
         <updated>2023-01-26T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Sup, we released our arm superstructure build section along with the videos.]]></summary>
         <content type="html"><![CDATA[<p>Sup, we released our arm superstructure build section along with the videos.</p><p>Additionally we forgot to add the chassis cutoff step to the superstructure section, you can find it at the end of section.</p>]]></content>
